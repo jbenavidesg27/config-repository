@@ -1,0 +1,27 @@
+server:
+  port: 9003
+eureka:
+  client:
+    region: default
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+    registry-fetch-interval-seconds: 5
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+      - id: passive_route
+        uri: http://localhost:8085
+        predicates:
+        - Path=/passive/**
+      - id: active_route
+        uri: http://localhost:8086
+        predicates:
+        - Path=/active/**
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
