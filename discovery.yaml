@@ -1,5 +1,5 @@
 server:
-  port: 8761
+  port: 8082
 spring: 
   application:
     name: discovery
@@ -8,15 +8,14 @@ spring:
       discovery:
         service-id: config
 eureka:
- server:
-    renewal-percent-threshold: 0.85
- instance:
-  hostname: localhost
- client:
-  service-url:
-    default-zone: http://localhost:8761/eureka/
-  register-with-eureka: false
-  fetch-registry: false 
+  renewalPercenThreshold: 0.85
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8082/eureka/
+    registerWithEureka: false
+    fetchRegistry: false 
 
     
        

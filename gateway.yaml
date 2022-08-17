@@ -4,7 +4,7 @@ eureka:
   client:
     region: default
     service-url:
-      default-zone: http://localhost:8761/eureka/
+      default-zone: http://localhost:8082/eureka/
     registry-fetch-interval-seconds: 5
 spring:
   application:
@@ -12,18 +12,18 @@ spring:
   cloud:
     gateway:
       routes:
-      - id: passive_route
+      - id: person_route
         uri: http://localhost:8085
+        predicates:
+        - Path=/person/**
+      - id: passive_route
+        uri: http://localhost:8086
         predicates:
         - Path=/passive/**
       - id: active_route
-        uri: http://localhost:8086
+        uri: http://localhost:8087
         predicates:
         - Path=/active/**
-      - id: person_route
-        uri: http://localhost:8088
-        predicates:
-        - Path=/person/**
 management:
   endpoints:
     web:
