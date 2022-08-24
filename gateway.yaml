@@ -20,7 +20,7 @@ spring:
         uri: http://localhost:8085
         predicates:
         - Path=/transaction/**
-        - id: balance_route
+      - id: balance_route
         uri: http://localhost:8085
         predicates:
         - Path=/balance/**
