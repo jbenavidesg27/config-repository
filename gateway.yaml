@@ -13,23 +13,23 @@ spring:
     gateway:
       routes:
       - id: passive_route
-        uri: http://localhost:8085
+        uri: http://localhost:8086
         predicates:
         - Path=/passive/**        
       - id: transaction_route
-        uri: http://localhost:8085
+        uri: http://localhost:8086
         predicates:
         - Path=/transaction/**
       - id: balance_route
-        uri: http://localhost:8085
+        uri: http://localhost:8086
         predicates:
         - Path=/balance/**
       - id: active_route
-        uri: http://localhost:8086
+        uri: http://localhost:8087
         predicates:
         - Path=/active/**
       - id: person_route
-        uri: http://localhost:8088
+        uri: http://localhost:8085
         predicates:
         - Path=/person/**
 management:
